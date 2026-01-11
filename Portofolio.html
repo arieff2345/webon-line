@@ -1,0 +1,441 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <link href="/output.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creative Marketing Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #3b82f6;
+            --secondary: #10b981;
+            --dark: #1e293b;
+            --light: #f8fafc;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        body.dark {
+            background-color: #0f172a;
+            color: #e2e8f0;
+        }
+        
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .subtab-content {
+            display: none;
+            animation: slideUp 0.4s ease;
+        }
+        
+        .subtab-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideUp {
+            from { 
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        body.dark .card:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background-color: #e2e8f0;
+            overflow: hidden;
+        }
+        
+        body.dark .skill-bar {
+            background-color: #334155;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            transition: width 1s ease;
+        }
+        
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .glow {
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+        }
+        
+        body.dark .glow {
+            box-shadow: 0 0 15px rgba(16, 185, 129, 0.5);
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+     <nav class="bg-gradient-to-r from-blue-600 to-green-500 text-white p-4">
+    <div class="container mx-auto flex justify-between items-center">
+        <div class="flex items-center space-x-2">
+            <i class="fas fa-palette text-2xl"></i>
+            <span class="text-xl font-bold">Arif Santoso</span>
+        </div>
+        <div class="hidden md:flex space-x-6 z-top">
+            <a href="../Halaman Utama/jasadesainarifsantoso.html" class="hover:text-blue-200 transition text-white drop-shadow-lg">Beranda</a>
+            <a href="../portofolio/market.html" class="hover:text-blue-200 transition text-white drop-shadow-lg">Portofolio</a>
+            <a href="#" class="hover:text-blue-200 transition text-white drop-shadow-lg">Tentang Kami</a>
+            <a href="#" class="hover:text-blue-200 transition text-white drop-shadow-lg">Kontak</a>
+        </div>
+        <button id="mobile-menu-button" class="md:hidden text-white" onclick="toggleMobileMenu()">
+            <i class="fas fa-bars text-2xl"></i>
+        </button>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden absolute top-16 left-80 right-0 bg-gradient-to-r from-blue-800/80 to-green-800/80 shadow-lg transition-all duration-300 transform origin-top z-[9999]">
+            <div class="flex flex-col space-y-4 p-4">
+                <a href="../Halaman Utama/jasadesainarifsantoso.html" class="hover:text-blue transition text-white drop-shadow-lg border-b border-white pb-2">Beranda</a>
+                <a href="../portofolio/market.html" class="hover:text-blue transition text-white drop-shadow-lg border-b border-white pb-2">Portofolio</a>
+                <a href="#" class="hover:text-blue transition text-white drop-shadow-lg border-b border-white pb-2">Tentang Kami</a>
+                <a href="#" class="hover:text-blue transition text-white drop-shadow-lg border-b border-white pb-2">Kontak</a>
+            </div>
+        </div>
+    </div>
+</nav>
+
+
+<script>
+    function toggleMobileMenu() {
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenu.classList.toggle('hidden');
+    }
+</script>
+
+</body>
+
+<body class="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <!-- Main Container -->
+    <div class="container mx-auto px-4 py-8 max-w-6xl">
+        <!-- Header -->
+        <header class="flex flex-col items-center justify-center mb-12">
+                    
+            <div class="relative mb-6 w-40 h-40 rounded-full overflow-hidden border-4 border-white dark:border-gray-800 shadow-lg glow mb-6">
+                <img src= "aku 1.jpg" alt="Professional portrait of a creative designer with a modern minimalist background" 
+                     class="w-full h-full object-cover" onerror="this.src='https://via.placeholder.com/400?text=Profile+Photo'">
+            </div>
+        
+            <h1 class="text-4xl md:text-5xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-emerald-500 mb-2">
+                ARIF SANTOSO
+            </h1>
+            <p class="text-lg text-gray-600 dark:text-gray-800 text-center max-w-2xl">
+             Graphic Designer
+            </p>
+        </header>
+
+            <!-- Navigation Tabs -->
+                <nav class="flex justify-center mb-8">
+                    <div class="inline-flex rounded-full p-1 bg-blue-200 dark:bg-black-800">
+                        <button data-tab=" toko online" class="tab-button px-5 py-2 rounded-full font-medium transition-all active" onclick="switchTab('toko online')" style="color: black;">
+                            <a href="../halaman sosial media/Layanan.html">Toko online</a>
+                        </button>
+                    </div>
+                </nav>     
+
+        <!-- Tab Contents -->
+        <div class="tab-content active" id="biodata-tab">
+            <!-- Biodata Section -->
+            <section class="grid md:grid-cols-2 gap-8 mb-16">
+                <!-- About Me -->
+                <div class="card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white flex items-center">
+                        <i class="fas fa-user text-blue-500 mr-2"></i> Tentang Saya
+                    </h2>
+                    <p class="text-gray-600 dark:text-gray-300 mb-4">
+                        Halo! Saya Arif santoso, Mahasiswa Jurusan matematika Di Universistas Negeri Makassar yang hobi Desain grafis. Saya seorang desainer grafis dengan lebih dari 3 tahun pengalaman menciptakan konten visual yang menarik dan strategi media sosial yang efektif.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-map-marker-alt text-blue-500 w-6 text-center mr-2"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Lokasi: Makassar</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-blue-500 w-6 text-center mr-2"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Email: Arifsantoso2223444@gmail.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fas fa-phone text-blue-500 w-6 text-center mr-2"></i>
+                            <span class="text-gray-600 dark:text-gray-300">Telepon: +6282211270726</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-whatsapp text-blue-500 w-6 text-center mr-2"></i>
+                            <span class="text-gray-600 dark:text-gray-300">WhatsApp: +6282211270726</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white flex items-center">
+                        <i class="fas fa-star text-emerald-500 mr-2"></i> Keahlian
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Corel Draw </span>
+                                <span class="text-gray-500 dark:text-gray-400">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Canva </span>
+                                <span class="text-gray-500 dark:text-gray-400">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width:90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Social Media Strategy</span>
+                                <span class="text-gray-500 dark:text-gray-400">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Content Creation</span>
+                                <span class="text-gray-500 dark:text-gray-400">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <span class="text-gray-600 dark:text-gray-300">Logo Spesialist</span>
+                                <span class="text-gray-500 dark:text-gray-400">70%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                        
+            </section>
+
+            <!-- Portfolio Gallery -->
+            <section class="mb-16">
+                <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-Black">
+                    <i class="fas fa-images text-blue-500 mr-2"></i> Portfolio
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div class="rounded-xl overflow-hidden group relative">
+                          <a href="../portofolio/Backup_of_flyer hut bpjs.jpg">
+                        <img src="Backup_of_flyer hut bpjs.jpg" alt="Minimalist brand identity design showing logo, business cards and stationary" 
+                             class="w-full h-48 sm:h-56 object-cover transition-all duration-300 group-hover:scale-105"
+                             onerror="this.src='https://via.placeholder.com/600x400?text=Design+Project'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <h3 class="text-white font-medium"> <a href="../portofolio/Backup_of_flyer hut bpjs.jpg" class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-6 rounded-lg transition-colors">
+                 pamflet</a></h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden group relative">
+                        <img src="logo barru 1 real.png" alt="Social media post design templates with vibrant colors and modern typography" 
+                             class="w-full h-48 sm:h-56 object-cover transition-all duration-300 group-hover:scale-105"
+                             onerror="this.src='https://via.placeholder.com/600x400?text=Design+Project'">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <h3 class="text-white font-medium"> <a href="../portofolio/logo barru 1 real.png" class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-6 rounded-lg transition-colors">
+                 Logo</a></h3>
+                        </div>
+                    </div>
+                    <div class="rounded-xl overflow-hidden group relative">
+                        <img src="Arif santoso_arief_2345_Selamatkan Mangrove dan Bumi2.jpg" alt="Infografis post design templates with vibrant colors and modern typography" 
+                             class="w-full h-48 sm:h-56 object-cover transition-all duration-300 group-hover:scale-105"
+                             onerror="this.src='https://via.placeholder.com/600x400?text=Design+Project'">
+                        <div class= "absolute inset-0 bg-gradient-to-t from-black to-transparent flex items-end p-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                            <h3 class="text-white font-medium">   <a href="../portofolio/Arif santoso_arief_2345_Selamatkan Mangrove dan Bumi2.jpg" class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-6 rounded-lg transition-colors">
+                 Infografis</a></h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials -->
+            <section>
+                <h2 class="text-2xl font-bold mb-6 text-gray-800 dark:text-Black">
+                    <i class="fas fa-quote-left text-emerald-500 mr-2"></i> Testimoni Klien
+                </h2>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                        <div class="flex items-start mb-4">
+                            <img src="haikal.jpg" alt="Portrait of a satisfied client in formal business attire" 
+                                 class="w-12 h-12 rounded-full object-cover mr-4"
+                                 onerror="this.src='https://via.placeholder.com/60?text=Client'">
+                            <div>
+                                <h3 class="font-bold text-gray-800 dark:text-white">bang haikal</h3>
+                                <p class="text-blue-500 text-sm">investor</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">
+                            "Desain yang dibuat sangat profesional dan sesuai dengan kebutuhan bisnis saya. Proses pengerjaan cepat dan hasilnya memuaskan."
+                        </p>
+                    </div>
+                    <div class="card bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                        <div class="flex items-start mb-4">
+                            <img src="ica.jpg" alt="Portrait of a marketing manager giving a positive review" 
+                                 class="w-12 h-12 rounded-full object-cover mr-4"
+                                 onerror="this.src=">
+                            <div>
+                                <h3 class="font-bold text-gray-800 dark:text-white">azizah</h3>
+                                <p class="text-blue-500 text-sm">owner MHU</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 dark:text-gray-300 italic">
+                            "Strategi media sosial yang diberikan sangat membantu meningkatkan engagement di akun kami. Sangat recommended!"
+                        </p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="bg-gradient-to-r from-blue-500 to-emerald-500 rounded-xl p-8 text-center my-12 shadow-lg">
+            <h2 class="text-2xl md:text-3xl font-bold text-white mb-4">Siap Bekerja Sama?</h2>
+            <p class="text-blue-100 mb-6 max-w-2xl mx-auto">
+                Hubungi saya sekarang untuk berdiskusi tentang kebutuhan desain atau layanan media sosialmu. 
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="https://wa.me/62895325997882" class="bg-white hover:bg-gray-100 text-blue-600 font-medium py-3 px-6 rounded-lg transition-colors">
+                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                </a>
+                <a href="mailto:Arifsantoso2223444@email.com" class="bg-blue-800 hover:bg-blue-900 text-white font-medium py-3 px-6 rounded-lg transition-colors">
+                    <i class="fas fa-envelope mr-2"></i> Email
+                </a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-6 text-gray-600 dark:text-gray-400 border-t border-gray-200 dark:border-gray-800">
+            <p>© 2023 Arif Santoso. follow now.</p>
+        </footer>
+    </div>
+
+    <script>
+        // Toggle dark/light theme
+        const themeToggle = document.getElementById('theme-toggle');
+        if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+        
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                localStorage.setItem('color-theme', 'dark');
+            } else {
+                localStorage.setItem('color-theme', 'light');
+            }
+        });
+        
+        // Tab switching
+        function switchTab(tabId) {
+            // Hide all tab contents
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected tab content
+            document.getElementById(`${tabId}-tab`).classList.add('active');
+            
+            // Update tab buttons
+            document.querySelectorAll('.tab-button').forEach(button => {
+                if (button.getAttribute('data-tab') === tabId) {
+                    button.classList.add('active');
+                } else {
+                    button.classList.remove('active');
+                }
+            });
+        }
+        
+        // Subtab switching
+        function switchSubTab(subTabId) {
+            // Hide all subtab contents
+            document.querySelectorAll('.subtab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show selected subtab content
+            document.getElementById(`${subTabId}-subtab`).classList.add('active');
+            
+            // Update subtab buttons
+            document.querySelectorAll('.subtab-button').forEach(button => {
+                if (button.getAttribute('data-subtab') === subTabId) {
+                    button.classList.add('active');
+                    button.classList.add('border-blue-500');
+                    button.classList.remove('border-transparent');
+                } else {
+                    button.classList.remove('active');
+                    button.classList.remove('border-blue-500');
+                    button.classList.add('border-transparent');
+                }
+            });
+        }
+        
+        // Animate skill bars on scroll into view
+        const skillBars = document.querySelectorAll('.skill-progress');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const width = entry.target.style.width;
+                    entry.target.style.width = '0';
+                    setTimeout(() => {
+                        entry.target.style.width = width;
+                    }, 100
